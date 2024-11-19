@@ -13,3 +13,11 @@ function solution(n) {
     
     return answer;
 }
+// 굳이 에 넣을 필요가 없네... 바로 합치면 되는데, 필요없는 작업인데, 추가했따.
+//function solution(num) { 
+//    let sum = 0;
+//    for (let i = 1; i <= num; i++) {
+//        if (num % i === 0) sum += i
+//    }
+//    return sum
+//}
