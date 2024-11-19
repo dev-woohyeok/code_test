@@ -8,3 +8,9 @@ function solution(numbers) {
     answer = sum / numbers.length;
     return answer;
 }
+// reduce 를 사용해서 표현 가능
+// a + b + c + d 딱딱닥!그리고 길이로 딱 나누면 평균값 크 
+//function solution(numbers) {
+//    var answer = numbers.reduce((a(누적값),b(현재배열값)) => a+b, 0(초기값)) / numbers.length;
+//    return answer;
+//}
