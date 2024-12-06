@@ -4,7 +4,7 @@
 // 순차적으로 뺌 언제까지 제곱크기 보다 작아질때까지
 
 // 1. 최대길이를 구해야겟지? 
-function getTernaryLength(num){
+function maxLength(num){
     let result = 0;
     while ( num >= 3 ** result ){
         result ++;
@@ -13,10 +13,10 @@ function getTernaryLength(num){
 }
 
 // 2. 3진법으로 변환해야겠지? num 을 해당자릿수에서 값을 뻄
-function ternaryScale(num) {
+function getNum3(num) {
     let result = "";
-    let len = getTernaryLength(num);
-    for (let i = len; i >= 0; i--) { // 3진법 변환
+    let max = maxLength(num);
+    for (let i = max; i >= 0; i--) { // 3진법 변환
         let count = Math.floor(num / 3 ** i); // 현재 자리에서 뺄 수 있는 최대 횟수 계산
         num -= count * 3 ** i; // 그만큼 빼기
         result += count; // 결과에 추가
@@ -24,7 +24,7 @@ function ternaryScale(num) {
     return result;
 }
 
-function getDecimal(num) {
+function getNum10(num) {
     return num
         .split("") // 반전값 배열로 변환
         .reduce((acc, cur, idx, arr) => 
@@ -32,6 +32,6 @@ function getDecimal(num) {
 }
 
 function solution(n) {
-    const reverse = ternaryScale(n).split("").reverse().join(""); // 3진법 변환 후 뒤집기
-    return getDecimal(reverse);
+    const reverse = getNum3(n).split("").reverse().join(""); // 3진법 변환 후 뒤집기
+    return getNum10(reverse);
 }
