@@ -16,7 +16,7 @@ function getTernaryLength(num){
 function ternaryScale(num) {
     let result = "";
     let len = getTernaryLength(num);
-  for (let i = len; i >= 0; i--) { // 3진법 변환
+    for (let i = len; i >= 0; i--) { // 3진법 변환
         let count = Math.floor(num / 3 ** i); // 현재 자리에서 뺄 수 있는 최대 횟수 계산
         num -= count * 3 ** i; // 그만큼 빼기
         result += count; // 결과에 추가
