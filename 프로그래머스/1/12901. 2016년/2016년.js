@@ -1,14 +1,10 @@
-// 2월 29일
-// 1월 1일 은 금요일
-// 1월 31 , 29 . 30, 31
-// Date 를 통해서 하고, 요일 반환
-// start => fri
-// 요일 계산하고, 7로 나누면 되는거잔슴 Fri 로 시작하고
-
 function solution(a, b) {
-    const days = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"];
-    const start = new Date(2016, 0,1);
-    const now = new Date(2016,a - 1,b);
-    console.log(`${(now - start) / (3600 * 24 * 1000)} - ${now}`);
-    return days[((now - start) / (3600 * 24 * 1000)) % 7];
+    const days = ["SUN","MON","TUE","WED","THU","FRI","SAT"]; // 요일
+	const month = [31,29,31,30,31,30,31,31,30,31,30,31]; // 월마다 요일 수
+    // 두 날짜의 요일 차이 구하기, -1 하는 이유는 1월 1일 부터 시작이므로 1부터 시작
+  	const result = month.slice(0, a - 1).reduce((acc,cur) => acc + cur, 0) + b - 1;
+    // 금요일 보정
+    return days[(result + 5) % 7];
 }
+
+console.log(solution(9,29));
