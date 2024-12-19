@@ -1,3 +1,4 @@
+
 function solution(n, m, section) {
     let count = 0; // 롤러 사용 횟수
     let lastPainted = 0; // 마지막으로 칠한 구역의 끝
