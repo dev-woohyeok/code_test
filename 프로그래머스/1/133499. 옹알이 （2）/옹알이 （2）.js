@@ -10,10 +10,10 @@ function solution(babbling) { // 1차 풀이 실패 : 연속 발음 불가 고�
                 return false;
             }
             // 단어 발음 제거
-            tempSay = tempSay.split(say).join(" ");
+            tempSay = tempSay.split(say).join(" ").trim();
         }
         // 단어가 공백인지 확인
-        return tempSay.trim() === "";
+        return tempSay === "";
     }).length;
 
     return count;
