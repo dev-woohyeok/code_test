@@ -1,21 +1,26 @@
-function isUpper(u_code) {
-    return 90 >= u_code && u_code >= 65
-}
-
-function isLower(u_code) {
-    return 122 >= u_code && u_code >= 97
-}
-
-function solution(s, n) { // 65 ~ 90, 97 ~ 122
-    return s.split("")
-        .map((str) => {
-            let u_code = str.codePointAt(0); // 유니코드
-       if (!isUpper(u_code) && !isLower(u_code)) return str; // 대문자/소문자가 아니면 그대로 반환
-            if (isUpper(u_code)) {
-                return String.fromCodePoint(((u_code - 65 + n) % 26) + 65);
-            }
-            if (isLower(u_code)) {
-                return String.fromCodePoint(((u_code - 97 + n) % 26) + 97);
-            }
-        }).join("");
+function solution(s, n) { // s: 문자열, n: 미는 위치
+    const code_A = "A".codePointAt(0);
+    const code_a = "a".codePointAt(0);
+    const code_Z = "Z".codePointAt(0);
+    const code_z = "z".codePointAt(0);
+    let answer = "";
+    
+    for(const char of s){// 밀기 
+        let code = char.codePointAt(0);
+        let move = code + n;
+        let rest = code_z - code_a + 1;
+        
+        if(code >= code_a && code <= code_z){  // 대문자 처리
+            code = move > code_z 
+                ? code = ((move - code_a) % rest) + code_a
+                : move;
+        }else if(code >= code_A && code <= code_Z){ // 소문자 처리 
+            code = move > code_Z
+                ? code = ((move - code_A) % rest) + code_A
+                : move;
+        }
+        answer += String.fromCodePoint(code);
+    }
+    
+    return answer;
 }
