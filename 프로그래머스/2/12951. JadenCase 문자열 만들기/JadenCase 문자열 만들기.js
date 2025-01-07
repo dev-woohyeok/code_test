@@ -1,7 +1,6 @@
 function solution(s) {
     const result = s.split(" ")
-    .map(str => 
-         [...str].map((char, idx) => idx === 0 ? char.toUpperCase() : char.toLowerCase() ).join(""))
+    .map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase())
     .join(" ")
     
     return result;    
