@@ -14,10 +14,11 @@ function solution(t, tangerine) {
 	// 상자에 담기
 	let count = 0;
 	let total = 0;
-	for (const num of sortedTangerine) {
-		total += num;
-		count++;
-		if (total >= t) break;
-	}
+    sortedTangerine.some((v) => {
+        total += v;
+        count++;
+        if(total>= t) return true;
+    })
+    
 	return count;
 }
